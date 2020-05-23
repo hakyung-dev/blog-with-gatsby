@@ -1,10 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+const config = require('./contents/config');
 
 module.exports = {
+  siteMetadata: {
+    title: config.siteTitle,
+    author: config.author
+  },
   plugins: [
     'gatsby-plugin-sass',
   ],
