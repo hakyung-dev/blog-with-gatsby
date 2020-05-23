@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'gatsby';
+import ThemeContext from '../store/ThemeContext';
 
 import Nav from '../components/ActiveLinkButton';
 import logo from '../images/logo.png';
+import Switch from '../components/Switch';
 
 const Header = (props) => {
   const { navArray, title } = props;
   const [scrolled, setScrolled] = useState(false);
+  const { state, dispatch } = useContext(ThemeContext);
 
   onscroll = () => {
     if (window.scrollY > 30) {
@@ -33,9 +36,16 @@ const Header = (props) => {
             <div className="title">{title}</div>
           </div>
         </Link>
-        <nav>
-          <ul className="nav-list">{navList}</ul>
-        </nav>
+        <div className="wrap">
+          <nav>
+            <ul className="nav-list">{navList}</ul>
+          </nav>
+          <Switch
+            isTrue={state.darkMode}
+            handleToggle={() => dispatch({ type: 'TOGGLE_DARK_MODE' })}
+            type={'theme'}
+          />
+        </div>
       </div>
     </header>
   );
