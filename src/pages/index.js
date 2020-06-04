@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import config from '../../contents/config';
+import pageText from '../../contents/data/pageText';
 import Layout from '../layouts';
 import Head from '../components/Head';
 import SimpleList from '../components/SimpleList';
 
 const IndexPage = (props) => {
-  const { latestPost, indexMain, indexCode } = props.data;
+  const { latestPost, indexCode } = props.data;
   const [text, setText] = useState('');
   const [icon, setIcon] = useState('');
 
@@ -18,11 +18,11 @@ const IndexPage = (props) => {
 
     const typing = () => {
       let speed = 100;
-      let fullText = config.indexHi[index].text;
-      setIcon(config.indexHi[index].icon);
+      let fullText = pageText.indexHi[index].text;
+      setIcon(pageText.indexHi[index].icon);
 
       const changeIndex = () => {
-        if (index === config.indexHi.length - 1) {
+        if (index === pageText.indexHi.length - 1) {
           index = 0;
         } else {
           index = index + 1;
@@ -66,10 +66,7 @@ const IndexPage = (props) => {
               {`I'm ${text} ${icon}`}
               <span className="curser">_</span>
             </h1>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: indexMain.html }}
-            />
+            <div className="description">{pageText.index}</div>
           </div>
           <Link className="code" to="/about">
             <div
@@ -98,14 +95,8 @@ const IndexPage = (props) => {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    indexMain: markdownRemark(
-      frontmatter: { nav: { eq: "page" }, title: { eq: "indexMain" } }
-    ) {
-      html
-    }
-
     indexCode: markdownRemark(
-      frontmatter: { nav: { eq: "page" }, title: { eq: "indexCode" } }
+      frontmatter: { nav: { eq: "data" }, title: { eq: "indexCode" } }
     ) {
       html
     }
