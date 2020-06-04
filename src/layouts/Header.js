@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import ThemeContext from '../store/ThemeContext';
 
 import Nav from '../components/ActiveLinkButton';
-import logo from '../images/logo.png';
+import logo from '../styles/images/siteLogo.png';
 import Switch from '../components/Switch';
 
 const Header = (props) => {

@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Layout from '../layouts/index';
 import Head from '../components/Head';
-import Not from '../images/notFound.png';
+import Not from '../styles/images/notFound.png';
 
 const NotFound = () => {
   return (
