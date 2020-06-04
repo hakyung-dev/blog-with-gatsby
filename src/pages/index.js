@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import config from '../../contents/config';
 import Layout from '../layouts';
+import Head from '../components/Head';
 import SimpleList from '../components/SimpleList';
 
 const IndexPage = (props) => {
@@ -56,6 +57,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
+      <Head title={`Home`} />
       <div className="section">
         <div className="content index-header">
           <div className="title">

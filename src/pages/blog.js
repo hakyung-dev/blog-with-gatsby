@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { FaSearch } from 'react-icons/fa';
 
 import Layout from '../layouts/index';
+import Head from '../components/Head';
 import CategoryButton from '../components/ActiveLinkButton';
 import PostList from '../components/BasicList';
 
@@ -40,6 +41,7 @@ const BlogPage = (props) => {
 
   return (
     <Layout>
+      <Head title={`Blog`} />
       <div className="section-blog-header">
         <div className="content blog-header">
           <h1 className="title">Blog</h1>

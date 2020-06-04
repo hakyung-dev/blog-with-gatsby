@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import _ from 'lodash';
 
 import Layout from '../layouts/index';
+import Head from '../components/Head';
 import PostList from '../components/BasicList';
 import CategoryButton from '../components/ActiveLinkButton';
 
@@ -24,6 +25,7 @@ const category = (props) => {
 
   return (
     <Layout>
+      <Head title={`Category - ${pageContext.category}`} />
       <div className="filter">
         <h1 className="filter-title">
           Posts in category: <span className="by">{`${pageContext.category}`}</span>

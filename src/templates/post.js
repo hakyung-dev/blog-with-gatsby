@@ -4,6 +4,7 @@ import _ from 'lodash';
 import Img from 'gatsby-image';
 
 import Layout from '../layouts/index';
+import Head from '../components/Head';
 import Button from '../components/ActiveLinkButton';
 
 const Post = (props) => {
@@ -30,6 +31,7 @@ const Post = (props) => {
 
   return (
     <Layout>
+      <Head title={frontmatter.title} />
       <div className="blog-post">
         <div className="post-top">
           <div className="wrap">

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import _ from 'lodash';
 
 import Layout from '../layouts/index';
+import Head from '../components/Head';
 import PostList from '../components/BasicList';
 import TagButton from '../components/ActiveLinkButton';
 
@@ -11,6 +12,7 @@ const tags = (props) => {
 
   const tagList = data.allTags.group.map((category, i) => {
     const kebabCategory = _.kebabCase(category.fieldValue);
+
     return (
       <li key={i}>
         <TagButton
@@ -24,6 +26,7 @@ const tags = (props) => {
 
   return (
     <Layout>
+      <Head title={`Tag - ${pageContext.tag}`} />
       <div className="filter">
         <h1 className="filter-title">
           Posts tagged as <span className="by">{`${pageContext.tag}`}</span>

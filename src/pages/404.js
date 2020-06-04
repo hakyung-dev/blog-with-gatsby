@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Layout from '../layouts/index';
+import Head from '../components/Head';
 import Not from '../images/notFound.png';
 
 const NotFound = () => {
   return (
     <Layout>
+      <Head title={`404`} />
       <div className="section">
         <div className="content not">
           <h1 className="title">Page Not Found</h1>
