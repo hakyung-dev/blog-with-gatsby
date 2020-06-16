@@ -26,6 +26,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve('./src/templates/post.js');
+  const pageTemplate = path.resolve('./src/templates/page.js');
   const categoryTemplate = path.resolve('./src/templates/category.js');
   const tagTemplate = path.resolve('./src/templates/tag.js');
 
@@ -47,9 +48,24 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  const markdownPage = await graphql(`
+    query {
+      allMarkdownRemark(filter: { fields: { nav: { eq: "page" } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const categorySet = new Set();
   const tagSet = new Set();
   const postEdges = markdownBlog.data.allMarkdownRemark.edges;
+  const pageEdges = markdownPage.data.allMarkdownRemark.edges;
 
   postEdges.forEach((edge) => {
     if (edge.node.frontmatter.tags) {
@@ -65,6 +81,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: postTemplate,
       path: `/blog/${edge.node.fields.slug}`,
+      context: {
+        slug: edge.node.fields.slug,
+      },
+    });
+  });
+
+  pageEdges.forEach((edge) => {
+    createPage({
+      component: pageTemplate,
+      path: `/${edge.node.fields.slug}`,
       context: {
         slug: edge.node.fields.slug,
       },
