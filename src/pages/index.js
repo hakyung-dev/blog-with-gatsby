@@ -15,6 +15,7 @@ const IndexPage = (props) => {
     let isTyping = true;
     let typeIndex = 0;
     let index = 0;
+    let typingTimer;
 
     const typing = () => {
       let speed = 100;
@@ -38,7 +39,7 @@ const IndexPage = (props) => {
           speed = 2500;
         }
 
-        setTimeout(typing, speed);
+        typingTimer = setTimeout(typing, speed);
       } else {
         setText(fullText.substring(0, typeIndex));
         typeIndex--;
@@ -48,11 +49,15 @@ const IndexPage = (props) => {
           changeIndex();
         }
 
-        setTimeout(typing, speed);
+        typingTimer = setTimeout(typing, speed);
       }
     };
 
     typing();
+
+    return () => {
+      clearTimeout(typingTimer);
+    };
   }, []);
 
   return (
