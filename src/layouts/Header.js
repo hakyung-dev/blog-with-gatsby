@@ -12,9 +12,9 @@ const Header = (props) => {
   const { state, dispatch } = useContext(ThemeContext);
 
   onscroll = () => {
-    if (window.scrollY > 30) {
+    if (!scrolled && window.scrollY > 30) {
       setScrolled(true);
-    } else {
+    } else if (scrolled && window.scrollY <= 30) {
       setScrolled(false);
     }
   };
