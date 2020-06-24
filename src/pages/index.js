@@ -1,64 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import pageText from '../../contents/data/pageText';
 import Layout from '../layouts';
 import Head from '../components/Head';
 import SimpleList from '../components/SimpleList';
+import Typing from '../components/Typing';
 
 const IndexPage = (props) => {
   const { latestPost, indexCode } = props.data;
-  const [text, setText] = useState('');
-  const [icon, setIcon] = useState('');
-
-  useEffect(() => {
-    let isTyping = true;
-    let typeIndex = 0;
-    let index = 0;
-    let typingTimer;
-
-    const typing = () => {
-      let speed = 100;
-      let fullText = pageText.indexHi[index].text;
-      setIcon(pageText.indexHi[index].icon);
-
-      const changeIndex = () => {
-        if (index === pageText.indexHi.length - 1) {
-          index = 0;
-        } else {
-          index = index + 1;
-        }
-      };
-
-      if (isTyping) {
-        setText(fullText.substring(0, typeIndex));
-        typeIndex++;
-
-        if (typeIndex === fullText.length + 1) {
-          isTyping = false;
-          speed = 2500;
-        }
-
-        typingTimer = setTimeout(typing, speed);
-      } else {
-        setText(fullText.substring(0, typeIndex));
-        typeIndex--;
-
-        if (typeIndex === 0) {
-          isTyping = true;
-          changeIndex();
-        }
-
-        typingTimer = setTimeout(typing, speed);
-      }
-    };
-
-    typing();
-
-    return () => {
-      clearTimeout(typingTimer);
-    };
-  }, []);
 
   return (
     <Layout>
@@ -68,8 +18,8 @@ const IndexPage = (props) => {
           <div className="title">
             <h1>{`Hi! `}</h1>
             <h1 className="type">
-              {`I'm ${text} ${icon}`}
-              <span className="curser">_</span>
+              {`I'm `}
+              <Typing pairs={pageText.indexHi} />
             </h1>
             <div className="description">{pageText.index}</div>
           </div>
