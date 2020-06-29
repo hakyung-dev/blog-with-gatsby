@@ -1,13 +1,13 @@
 import React from 'react';
 
 const Switch = (props) => {
-  const { isTrue, handleToggle, type } = props;
+  const { isChecked, handleToggle, type } = props;
 
   return (
     <div className="switch">
       <input
         type="checkbox"
-        checked={isTrue}
+        checked={isChecked}
         onChange={handleToggle}
         className={`switch-checkbox`}
         id={`switch-${type}`}
