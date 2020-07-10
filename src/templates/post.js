@@ -11,15 +11,6 @@ const Post = (props) => {
   const { frontmatter, html } = props.data.blogPost;
   const kebabCategory = _.kebabCase(frontmatter.category);
 
-  const headImage = frontmatter.thumbnail ? (
-    <Img
-      className="thumbnail"
-      fixed={frontmatter.thumbnail.childImageSharp.fixed}
-    />
-  ) : (
-    <div className="icon">{frontmatter.icon}</div>
-  );
-
   const postTagList = frontmatter.tags.map((tag, i) => {
     const kebabTag = _.kebabCase(tag);
     return (
@@ -44,7 +35,12 @@ const Post = (props) => {
             <div className="date">{frontmatter.date}</div>
             <ul className="tag-list">{postTagList}</ul>
           </div>
-          <div className="img">{headImage}</div>
+          <div className="img">
+            <Img
+              className="thumbnail"
+              fixed={frontmatter.thumbnail.childImageSharp.fixed}
+            />
+          </div>
         </div>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
@@ -64,7 +60,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         category
-        icon
         thumbnail {
           childImageSharp {
             fixed(width: 130, height: 130) {

@@ -59,7 +59,6 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             tags
-            icon
             category
             thumbnail {
               childImageSharp {
