@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLightbulb } from 'react-icons/fa';
 
 const Switch = (props) => {
   const { isChecked, handleToggle, type } = props;
@@ -13,7 +14,9 @@ const Switch = (props) => {
         id={`switch-${type}`}
       />
       <label className={`switch-label-${type}`} htmlFor={`switch-${type}`}>
-        <div className="ball" />
+        <div className="icon">
+          <FaLightbulb />
+        </div>
       </label>
     </div>
   );
