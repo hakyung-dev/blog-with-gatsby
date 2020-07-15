@@ -20,9 +20,10 @@ const BlogPage = (props) => {
     return (
       <li key={i}>
         <CategoryButton
-          path={`/categories/${kebabSlug}`}
-          type={`li-category`}
           name={category.fieldValue}
+          path={`/categories/${kebabSlug}`}
+          type={`button`}
+          classname={`li-category`}
         />
       </li>
     );

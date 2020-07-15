@@ -24,7 +24,12 @@ const BasicList = (props) => {
       const kebabSlug = _.kebabCase(tag);
       return (
         <li key={i}>
-          <TagButton path={`/tags/${kebabSlug}`} type={`li-tag`} name={tag} />
+          <TagButton
+            name={tag}
+            path={`/tags/${kebabSlug}`}
+            type={`button`}
+            classname={`li-tag`}
+          />
         </li>
       );
     });

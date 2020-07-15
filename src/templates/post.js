@@ -15,7 +15,12 @@ const Post = (props) => {
     const kebabTag = _.kebabCase(tag);
     return (
       <li key={i}>
-        <Button path={`/tags/${kebabTag}`} type={`post-tag`} name={tag} />
+        <Button
+          path={`/tags/${kebabTag}`}
+          type={`button`}
+          name={tag}
+          classname={`post-tag`}
+        />
       </li>
     );
   });
@@ -27,9 +32,10 @@ const Post = (props) => {
         <div className="post-top">
           <div className="wrap">
             <Button
-              path={`/categories/${kebabCategory}`}
-              type={`button-path`}
               name={`/categories/${kebabCategory}`}
+              path={`/categories/${kebabCategory}`}
+              type={`text`}
+              classname={`path`}
             />
             <h1 className="title">{frontmatter.title}</h1>
             <div className="date">{frontmatter.date}</div>

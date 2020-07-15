@@ -15,9 +15,10 @@ const category = (props) => {
     return (
       <li key={i}>
         <CategoryButton
-          path={`/categories/${kebabCategory}`}
-          type={`bottom-category`}
           name={category.fieldValue}
+          path={`/categories/${kebabCategory}`}
+          type={`button`}
+          classname={`bottom-category`}
         />
       </li>
     );

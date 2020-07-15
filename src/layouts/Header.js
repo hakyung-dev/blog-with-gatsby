@@ -22,7 +22,12 @@ const Header = (props) => {
   const navList = navArray.map((nav, i) => {
     return (
       <li key={i}>
-        <Nav name={nav.name} path={nav.link} type={`nav-item`} />
+        <Nav
+          name={nav.name}
+          path={nav.link}
+          type={`text`}
+          classname={`nav-item`}
+        />
       </li>
     );
   });

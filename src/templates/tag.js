@@ -16,9 +16,10 @@ const tags = (props) => {
     return (
       <li key={i}>
         <TagButton
-          path={`/tags/${kebabCategory}`}
-          type={`bottom-tag`}
           name={category.fieldValue}
+          path={`/tags/${kebabCategory}`}
+          type={`button`}
+          classname={`bottom-tag`}
         />
       </li>
     );

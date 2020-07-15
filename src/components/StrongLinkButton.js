@@ -11,8 +11,8 @@ const StrongLinkButton = (props) => {
     return (
       <li key={i}>
         <Link
-          className={`link all-${nav}`}
-          activeClassName={`active-all-${nav}`}
+          className={`link button all-${nav}`}
+          activeClassName={`active-button all-${nav}`}
           to={`/${nav}/${kebabSlug}`}
         >
           {button.fieldValue} <strong className="strong">{button.totalCount}</strong>
