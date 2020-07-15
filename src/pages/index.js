@@ -33,12 +33,9 @@ const IndexPage = (props) => {
       </div>
       <div className="section-grey">
         <div className="content index-sub">
-          <div className="title">
+          <Link className="title" to="/blog">
             <h2>Latest Blog Posts</h2>
-            <Link className="link" to="/blog">
-              &#8640; View All
-            </Link>
-          </div>
+          </Link>
           <div className="body">
             <SimpleList postEdges={latestPost.edges} />
           </div>

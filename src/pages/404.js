@@ -12,10 +12,9 @@ const NotFound = () => {
       <div className="section">
         <div className="content not">
           <h1 className="title">Page Not Found</h1>
-          <Link className="link" to="/">
-            &#8640; Head Home
+          <Link className="back-text" to="/">
+            404
           </Link>
-          <div className="back-text">404</div>
           <div className="float-container">
             <img className="img" src={Not} alt="404" />
           </div>
