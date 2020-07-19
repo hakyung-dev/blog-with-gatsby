@@ -36,7 +36,7 @@ const BasicList = (props) => {
 
     return (
       <li className="basic" key={i}>
-        <Link to={`/blog/${fields.slug}`}>
+        <Link to={`/blog/${fields.slug}`} className="link-post">
           <div className="info">
             <div className="img">{img}</div>
             <div className="wrap">
