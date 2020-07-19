@@ -11,6 +11,17 @@ const Post = (props) => {
   const { frontmatter, html } = props.data.blogPost;
   const kebabCategory = _.kebabCase(frontmatter.category);
 
+  const categoryButton = frontmatter.category ? (
+    <Button
+      name={`/categories/${kebabCategory}`}
+      path={`/categories/${kebabCategory}`}
+      type={`text`}
+      classname={`path`}
+    />
+  ) : (
+    <div className="path" />
+  );
+
   const postTagList = frontmatter.tags.map((tag, i) => {
     const kebabTag = _.kebabCase(tag);
     return (
@@ -31,12 +42,7 @@ const Post = (props) => {
       <div className="blog-post">
         <div className="post-top">
           <div className="wrap">
-            <Button
-              name={`/categories/${kebabCategory}`}
-              path={`/categories/${kebabCategory}`}
-              type={`text`}
-              classname={`path`}
-            />
+            {categoryButton}
             <h1 className="title">{frontmatter.title}</h1>
             <div className="date">{frontmatter.date}</div>
             <ul className="tag-list">{postTagList}</ul>
