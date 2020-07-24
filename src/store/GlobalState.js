@@ -15,11 +15,18 @@ const reducer = (state, action) => {
 };
 
 const GlobalState = () => {
-  const [state, dispatch] = useReducer(reducer, {
-    darkMode: localStorage.getItem('darkMode')
-      ? JSON.parse(localStorage.getItem('darkMode'))
-      : false,
-  });
+  let window = () => {
+    if (typeof window !== 'undefined') {
+      return {
+        darkMode: localStorage.getItem('darkMode')
+          ? JSON.parse(localStorage.getItem('darkMode'))
+          : false,
+      };
+    } else {
+      return { darkMode: false };
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, window);
 
   return { state, dispatch };
 };

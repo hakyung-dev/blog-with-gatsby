@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import ThemeContext from '../store/ThemeContext';
 
@@ -11,13 +11,21 @@ const Header = (props) => {
   const [scrolled, setScrolled] = useState(false);
   const { state, dispatch } = useContext(ThemeContext);
 
-  onscroll = () => {
-    if (!scrolled && window.scrollY > 30) {
-      setScrolled(true);
-    } else if (scrolled && window.scrollY <= 30) {
-      setScrolled(false);
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrolled && window.scrollY > 30) {
+        setScrolled(true);
+      } else if (scrolled && window.scrollY <= 30) {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   const navList = navArray.map((nav, i) => {
     return (
