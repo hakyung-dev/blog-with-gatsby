@@ -20,11 +20,14 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-copy-linked-files`,
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 650,
+              maxWidth: 700,
+              showCaptions: true,
+              markdownCaptions: true,
             },
           },
           {
