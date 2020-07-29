@@ -1,6 +1,6 @@
 [submodule "contents"]
 	path = contents
-	url = git@github.com:hakyung-dev/blog-contents.git
+	url = https://github.com/hakyung-dev/blog-contents
 [submodule "src/styles"]
 	path = src/styles
 	url = https://github.com/hakyung-dev/blog-styles
