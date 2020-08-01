@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import Layout from '../layouts/index';
 import Head from '../components/Head';
 import Button from '../components/ActiveLinkButton';
+import Comments from '../components/Comments';
 
 const Post = (props) => {
   const { frontmatter, html } = props.data.blogPost;
@@ -55,6 +56,7 @@ const Post = (props) => {
           </div>
         </div>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
+        <Comments />
       </div>
     </Layout>
   );
