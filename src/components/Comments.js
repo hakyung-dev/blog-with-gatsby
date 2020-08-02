@@ -8,10 +8,9 @@ const Comments = () => {
   const currentTheme = state.darkMode ? 'photon-dark' : 'github-light';
 
   useEffect(() => {
-    const isComment = commentRef.current.hasChildNodes();
+    const isComment = commentRef.current.firstChild;
     if (isComment) {
-      const old = commentRef.current.childNodes[0];
-      commentRef.current.removeChild(old);
+      commentRef.current.removeChild(isComment);
     }
 
     const utterances = document.createElement('script');
