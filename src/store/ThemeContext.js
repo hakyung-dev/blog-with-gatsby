@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import GlobalState from './GlobalState';
 
 const defaultState = {
-  darkMode: false,
+  isDarkMode: false,
 };
 
 const ThemeContext = createContext(defaultState);

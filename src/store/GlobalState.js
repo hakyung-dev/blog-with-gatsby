@@ -2,10 +2,10 @@ import { useReducer } from 'react';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'TOGGLE_DARK_MODE':
-      localStorage.setItem('darkMode', !state.darkMode);
+    case 'TOGGLE_MODE':
+      localStorage.setItem('isDarkMode', !state.isDarkMode);
       return {
-        darkMode: !state.darkMode,
+        isDarkMode: !state.isDarkMode,
       };
 
     default: {
@@ -15,18 +15,18 @@ const reducer = (state, action) => {
 };
 
 const GlobalState = () => {
-  let window = () => {
+  let isWindow = () => {
     if (typeof window !== 'undefined') {
       return {
-        darkMode: localStorage.getItem('darkMode')
-          ? JSON.parse(localStorage.getItem('darkMode'))
+        isDarkMode: localStorage.getItem('isDarkMode')
+          ? JSON.parse(localStorage.getItem('isDarkMode'))
           : false,
       };
     } else {
-      return { darkMode: false };
+      return { isDarkMode: false };
     }
   };
-  const [state, dispatch] = useReducer(reducer, window);
+  const [state, dispatch] = useReducer(reducer, isWindow());
 
   return { state, dispatch };
 };

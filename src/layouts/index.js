@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <div className={state.darkMode ? `theme dark` : `theme`}>
+    <div className={state.isDarkMode ? `theme dark` : `theme`}>
       <Header title={data.site.siteMetadata.title} navArray={config.siteMenu} />
       <main id="main">{children}</main>
       <Footer author={data.site.siteMetadata.author} />
