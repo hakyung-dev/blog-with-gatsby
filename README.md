@@ -17,7 +17,7 @@
 - React
 - ES2015+
 - GraphQL
-- SASS
+- Scss
 - Markdown
 - Git
 - Netlify
@@ -35,10 +35,12 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
    - SASS mixin을 이용하여 미디어쿼리 작성
    - 크게 모바일과 웹으로 나누었으며, 필요한 페이지는 테블릿 사이즈도 스타일링
 
-3. 다크모드
+3. 다크모드 지원
    - 상단 헤더의 스위치를 이용하여 어느 페이지에서도 접근 가능
    - React Context를 사용하여 테마 상태 관리
-   - localStorage로 테마 유지 기능
+   - localStorage로 재방문시에도 테마 유지 기능
+   - 사용자의 시스템 환경에 맞춰 테마 설정
+   - customize html.js로 깜박임이나 지연없이 자연스러운 테마 변경
 
 4. 상단 고정 헤더
    - 스크롤시 상단에 고정
@@ -60,6 +62,10 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
 
 8. 간단한 포스트 검색
    - 제목에 포함되는 단어로 포스트 검색
+
+9. 각 포스트별 댓글 기능
+   - 깃허브 이슈로 관리하는 utterances 추가
+   - 테마에 따라 댓글 테마도 변화
 
 <details>
 <summary>Dependencies</summary>
@@ -87,7 +93,7 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
 
 
 ## 📌 Thinng to Do
-- [ ] 댓글 (utterances 추가 예정)
+- [x] ~~댓글 (utterances)~~ DONE!
 - [ ] SEO
 
 ## 💫 Deploy
