@@ -3,9 +3,10 @@ import { useReducer } from 'react';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_MODE':
-      localStorage.setItem('isDarkMode', !state.isDarkMode);
+      const toggled = window.__theme === 'dark' ? 'light' : 'dark';
+      window.__setPreferredTheme(toggled);
       return {
-        isDarkMode: !state.isDarkMode,
+        theme: toggled,
       };
 
     default: {
@@ -18,12 +19,10 @@ const GlobalState = () => {
   let isWindow = () => {
     if (typeof window !== 'undefined') {
       return {
-        isDarkMode: localStorage.getItem('isDarkMode')
-          ? JSON.parse(localStorage.getItem('isDarkMode'))
-          : false,
+        theme: window.__theme,
       };
     } else {
-      return { isDarkMode: false };
+      return { theme: 'light' };
     }
   };
   const [state, dispatch] = useReducer(reducer, isWindow());

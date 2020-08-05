@@ -54,7 +54,7 @@ const Header = (props) => {
             <ul className="nav-list">{navList}</ul>
           </nav>
           <Switch
-            isChecked={state.isDarkMode}
+            isChecked={state.theme}
             handleToggle={() => dispatch({ type: 'TOGGLE_MODE' })}
             type={'theme'}
           />

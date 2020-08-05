@@ -5,7 +5,7 @@ import config from '../../contents/config';
 const Comments = () => {
   const { state } = useContext(ThemeContext);
   const commentRef = createRef();
-  const currentTheme = state.isDarkMode ? 'photon-dark' : 'github-light';
+  const currentTheme = state.theme === 'dark' ? 'photon-dark' : 'github-light';
 
   useEffect(() => {
     const isComment = commentRef.current.firstChild;
