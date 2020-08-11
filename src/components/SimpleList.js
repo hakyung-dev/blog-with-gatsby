@@ -31,9 +31,9 @@ const SimpleList = (props) => {
         <Link className="item" to={`/blog/${fields.slug}`}>
           <div className="wrap">
             <div className="img">{img}</div>
-            <h2 className="title">{frontmatter.title}</h2>
+            <div className="title">{frontmatter.title}</div>
           </div>
-          <ul className="tag-list">{tagList}</ul>
+          <ul className="tags">{tagList}</ul>
         </Link>
       </li>
     );

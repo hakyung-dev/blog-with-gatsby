@@ -27,20 +27,23 @@ const category = (props) => {
   return (
     <Layout>
       <Head title={`Category - ${pageContext.category}`} />
-      <div className="filter">
-        <h1 className="filter-title">
-          Posts in category: <span className="by">{`${pageContext.category}`}</span>
-        </h1>
-        <div className="filter-list">
+      <section>
+        <div className="container filter-top">
+          <h1 className="title">
+            Posts in category:{' '}
+            <span className="by">{`${pageContext.category}`}</span>
+          </h1>
+        </div>
+        <div className="container-wide filter-list">
           <PostList postEdges={data.postsByCategory.edges} />
         </div>
-      </div>
-      <div className="section-grey">
-        <div className="all">
+      </section>
+      <section className="section-grey">
+        <div className="container all">
           <div className="title">All Categories</div>
           <ul className="all-button">{categoryList}</ul>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

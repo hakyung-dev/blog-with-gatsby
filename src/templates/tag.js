@@ -28,20 +28,22 @@ const tags = (props) => {
   return (
     <Layout>
       <Head title={`Tag - ${pageContext.tag}`} />
-      <div className="filter">
-        <h1 className="filter-title">
-          Posts tagged as <span className="by">{`${pageContext.tag}`}</span>
-        </h1>
-        <div className="filter-list">
+      <section>
+        <div className="container filter-top">
+          <h1 className="title">
+            Posts tagged as <span className="by">{`${pageContext.tag}`}</span>
+          </h1>
+        </div>
+        <div className="container-wide filter-list">
           <PostList postEdges={data.postsByTag.edges} />
         </div>
-      </div>
-      <div className="section-grey">
-        <div className="all">
+      </section>
+      <section className="section-grey">
+        <div className="container all">
           <div className="title">All Tags</div>
           <ul className="all-button">{tagList}</ul>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

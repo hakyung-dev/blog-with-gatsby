@@ -11,10 +11,14 @@ const CategoriesPage = (props) => {
   return (
     <Layout>
       <Head title={`Categories`} />
-      <div className="content filter">
-        <h1 className="filter-title">All Categories</h1>
-        <Buttons nav={`categories`} group={group} />
-      </div>
+      <section>
+        <div className="container filter-top">
+          <h1 className="title">All Categories</h1>
+        </div>
+        <div className="container all">
+          <Buttons nav={`categories`} group={group} />
+        </div>
+      </section>
     </Layout>
   );
 };

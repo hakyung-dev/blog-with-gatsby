@@ -10,9 +10,14 @@ const Page = (props) => {
   return (
     <Layout>
       <Head title={`${frontmatter.title}`} />
-      <div className="md-page">
-        <div className="md-body" dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      <section>
+        <div className="container md-page">
+          <div
+            className="markdown"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </div>
+      </section>
     </Layout>
   );
 };

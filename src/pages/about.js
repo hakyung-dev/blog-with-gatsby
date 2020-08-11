@@ -12,21 +12,21 @@ const AboutPage = (props) => {
   return (
     <Layout>
       <Head title={`About`} />
-      <div className="section-about-header">
-        <div className="content about-header">
+      <section className="section-about-header">
+        <div className="container about-header">
           <h1 className="title">About me</h1>
-          <div className="container">{pageText.about}</div>
+          <div className="description">{pageText.about}</div>
         </div>
         <div className="float-container">
           <img src={Sit} className="image-sit" alt="page-about" />
         </div>
-      </div>
-      <div className="section md-page">
+      </section>
+      <section className="md-page">
         <div
-          className="content md-body"
+          className="container markdown"
           dangerouslySetInnerHTML={{ __html: about.html }}
         />
-      </div>
+      </section>
     </Layout>
   );
 };

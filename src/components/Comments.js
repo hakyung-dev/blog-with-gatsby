@@ -31,7 +31,14 @@ const Comments = () => {
     commentRef.current.appendChild(utterances);
   }, [currentTheme, commentRef]);
 
-  return <div className="comments" ref={commentRef}></div>;
+  return (
+    <section>
+      <div className="container comments">
+        <div className="title">Comments</div>
+        <div className="utterances" ref={commentRef}></div>
+      </div>
+    </section>
+  );
 };
 
 export default Comments;

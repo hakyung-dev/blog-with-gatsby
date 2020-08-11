@@ -11,10 +11,14 @@ const TagsPage = (props) => {
   return (
     <Layout>
       <Head title={`Tags`} />
-      <div className="filter">
-        <h1 className="filter-title">All Tags</h1>
-        <Buttons nav={`tags`} group={group} />
-      </div>
+      <section>
+        <div className="container filter-top">
+          <h1 className="title">All Categories</h1>
+        </div>
+        <div className="container all">
+          <Buttons nav={`tags`} group={group} />
+        </div>
+      </section>
     </Layout>
   );
 };

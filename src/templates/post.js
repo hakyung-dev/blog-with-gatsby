@@ -40,8 +40,8 @@ const Post = (props) => {
   return (
     <Layout>
       <Head title={frontmatter.title} />
-      <div className="blog-post">
-        <div className="post-top">
+      <section>
+        <div className="container post-top">
           <div className="wrap">
             {categoryButton}
             <h1 className="title">{frontmatter.title}</h1>
@@ -55,9 +55,14 @@ const Post = (props) => {
             />
           </div>
         </div>
-        <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
-        <Comments />
-      </div>
+      </section>
+      <section>
+        <div
+          className="container markdown"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </section>
+      <Comments />
     </Layout>
   );
 };

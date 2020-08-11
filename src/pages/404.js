@@ -9,8 +9,8 @@ const NotFound = () => {
   return (
     <Layout>
       <Head title={`404`} />
-      <div className="section">
-        <div className="content not">
+      <section>
+        <div className="container not">
           <h1 className="title">Page Not Found</h1>
           <Link className="back-text" to="/">
             404
@@ -19,7 +19,7 @@ const NotFound = () => {
             <img className="img" src={Not} alt="404" />
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

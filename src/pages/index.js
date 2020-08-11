@@ -13,10 +13,10 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <Head title={`Home`} />
-      <div className="section">
-        <div className="content index-header">
+      <section>
+        <div className="container-wide index-header">
           <div className="title">
-            <h1>{`Hi! `}</h1>
+            <h1 className="type">{`Hi! `}</h1>
             <h1 className="type">
               {`I'm `}
               <Typing pairs={pageText.indexHi} />
@@ -30,17 +30,17 @@ const IndexPage = (props) => {
             />
           </Link>
         </div>
-      </div>
-      <div className="section-grey">
-        <div className="content index-sub">
-          <Link className="title" to="/blog">
-            <h2>Latest Blog Posts</h2>
+      </section>
+      <section className="section-grey">
+        <div className="container index-sub">
+          <Link className="top" to="/blog">
+            <h2 className="title">Latest Blog Posts</h2>
           </Link>
           <div className="body">
             <SimpleList postEdges={latestPost.edges} />
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };
@@ -66,7 +66,7 @@ export const pageQuery = graphql`
             tags
             thumbnail {
               childImageSharp {
-                fixed(width: 30, height: 30) {
+                fixed(width: 35, height: 35) {
                   ...GatsbyImageSharpFixed
                 }
               }

@@ -43,13 +43,13 @@ const BlogPage = (props) => {
   return (
     <Layout>
       <Head title={`Blog`} />
-      <div className="section-blog-header">
-        <div className="content blog-header">
+      <section className="section-blog-header">
+        <div className="container blog-header">
           <h1 className="title">Blog</h1>
-          <div className="container">
+          <div className="wrap">
             <ul className="category-list">{categoryList}</ul>
           </div>
-          <div className="container">
+          <div className="wrap">
             <div className="count">
               {countPosts} / {countTotal}
             </div>
@@ -66,12 +66,12 @@ const BlogPage = (props) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="section">
-        <div className="content blog-list">
+      </section>
+      <section className="section">
+        <div className="container-wide blog-list">
           <PostList postEdges={filtered} />
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };
