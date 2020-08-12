@@ -67,7 +67,7 @@ const BlogPage = (props) => {
           </div>
         </div>
       </section>
-      <section className="section">
+      <section>
         <div className="container-wide blog-list">
           <PostList postEdges={filtered} />
         </div>
