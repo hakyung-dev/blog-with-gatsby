@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { FiMap } from 'react-icons/fi';
 
 import gmail from '../styles/images/gmail.svg';
 import github from '../styles/images/github.svg';
@@ -18,10 +19,19 @@ const Footer = (props) => {
       </section>
       <section className="set pusher" />
       <section className="set behind">
+        <div className="container site-map-title">
+          <div className="icon">
+            <FiMap />
+          </div>
+          <div className="title">사이트맵</div>
+        </div>
         <div className="container site-map">
           <div className="list">
             <Link to={`/`} className="index">
               Home
+            </Link>
+            <Link to={`/about`} className="index">
+              About
             </Link>
           </div>
           <div className="list">
@@ -40,7 +50,7 @@ const Footer = (props) => {
             </div>
           </div>
         </div>
-        <div className="icons">
+        <div className="container icons">
           <Copy imgSrc={gmail} text={config.email} name={`메일주소`} />
           <a href="https://github.com/hakyung-dev" className="icon-wrap">
             <img src={github} alt="github" className="icon" />
