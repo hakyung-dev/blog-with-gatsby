@@ -3,15 +3,13 @@ import { graphql } from 'gatsby';
 
 import pageText from '../../contents/data/pageText';
 import Layout from '../layouts/index';
-import Head from '../components/Head';
 import Sit from '../styles/images/sit.png';
 
 const AboutPage = (props) => {
   const { about } = props.data;
 
   return (
-    <Layout>
-      <Head title={`About`} />
+    <Layout title={`About`}>
       <section className="section-about-header">
         <div className="container about-header">
           <h1 className="title">About me</h1>

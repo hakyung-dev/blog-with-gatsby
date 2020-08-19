@@ -4,7 +4,6 @@ import _ from 'lodash';
 import Img from 'gatsby-image';
 
 import Layout from '../layouts/index';
-import Head from '../components/Head';
 import Button from '../components/ActiveLinkButton';
 import Comments from '../components/Comments';
 
@@ -38,8 +37,7 @@ const Post = (props) => {
   });
 
   return (
-    <Layout>
-      <Head title={frontmatter.title} />
+    <Layout title={frontmatter.title}>
       <section>
         <div className="container post-top">
           <div className="wrap">

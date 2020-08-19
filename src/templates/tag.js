@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import _ from 'lodash';
 
 import Layout from '../layouts/index';
-import Head from '../components/Head';
 import PostList from '../components/BasicList';
 import TagButton from '../components/ActiveLinkButton';
 
@@ -26,8 +25,7 @@ const tags = (props) => {
   });
 
   return (
-    <Layout>
-      <Head title={`Tag - ${pageContext.tag}`} />
+    <Layout title={`Tag - ${pageContext.tag}`}>
       <section>
         <div className="container filter-top">
           <h1 className="title">

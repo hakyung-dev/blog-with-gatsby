@@ -2,15 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../layouts/index';
-import Head from '../components/Head';
 import Buttons from '../components/StrongLinkButton';
 
 const CategoriesPage = (props) => {
   const { group } = props.data.allMarkdownRemark;
 
   return (
-    <Layout>
-      <Head title={`Categories`} />
+    <Layout title={`Categories`}>
       <section>
         <div className="container filter-top">
           <h1 className="title">All Categories</h1>

@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 
 import pageText from '../../contents/data/pageText';
 import Layout from '../layouts';
-import Head from '../components/Head';
 import SimpleList from '../components/SimpleList';
 import Typing from '../components/Typing';
 
@@ -11,8 +10,7 @@ const IndexPage = (props) => {
   const { latestPost, indexCode } = props.data;
 
   return (
-    <Layout>
-      <Head title={`Home`} />
+    <Layout title={`Home`}>
       <section>
         <div className="container-wide index-header">
           <div className="title">
