@@ -32,7 +32,7 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
    - Gatsby로 제작
 
 2. 반응형 디자인
-   - SASS mixin을 이용하여 미디어쿼리 작성
+   - Scss mixin을 이용하여 미디어쿼리 작성
    - 크게 모바일과 웹으로 나누었으며, 필요한 페이지는 테블릿 사이즈도 스타일링
 
 3. 다크모드 지원
@@ -42,10 +42,12 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
    - 사용자의 시스템 환경에 맞춰 테마 설정
    - customize html.js로 깜박임이나 지연없이 자연스러운 테마 변경
 
-4. 상단 고정 헤더
-   - 스크롤시 상단에 고정
-   - useState로 스크롤 상태 관리
-   - useContext 사용하여 테마 변경 가능한 스위치
+4. Layout 컴포넌트를 전페이지 공통 사항 관리
+   - useState로 스크롤 상태 관리로 Header는 상단에 고정
+   - useContext 사용하여 테마 변경 가능한 스위치를 항상 Header에 위치
+   - 페이지 SEO 적용
+   - 슬라이드 형태 Footer
+   - 아이콘 클릭시 클립보드로 복사 기능 구현
 
 5. 컨텐츠 파일 비공개로 관리
    - git submodule을 사용하여 별도의 private repository로 관리
@@ -63,9 +65,14 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
 8. 간단한 포스트 검색
    - 제목에 포함되는 단어로 포스트 검색
 
-9. 각 포스트별 댓글 기능
+9. 각 포스트별 댓글
    - 깃허브 이슈로 관리하는 utterances 추가
    - 테마에 따라 댓글 테마도 변화
+
+10. SEO
+    - 페이지별 title, description, image, url 정보 추가
+    - 소셜 미리보기를 위해 open graph 추가
+    - 구조화된 데이터 작성
 
 <details>
 <summary>Dependencies</summary>
@@ -94,7 +101,7 @@ gatsby 공식 스타터 중 하나인 [starter-hello-world](https://github.com/g
 
 ## 📌 Thinng to Do
 - [x] ~~댓글 (utterances)~~ DONE!
-- [ ] SEO
+- [x] ~~SEO~~ DONE!
 
 ## 💫 Deploy
 [![Deploy to Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com/)
