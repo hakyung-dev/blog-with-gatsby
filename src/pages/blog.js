@@ -39,8 +39,13 @@ const BlogPage = (props) => {
     searchPost(event.target.value);
   };
 
+  const seo = {
+    description: `Javascript, React 등 Frontend 개발과 관련된 글을 씁니다.`,
+    path: `/blog`,
+  };
+
   return (
-    <Layout title={`Blog`}>
+    <Layout title={`Blog`} pageSEO={seo}>
       <section className="section-blog-header">
         <div className="container blog-header">
           <h1 className="title">Blog</h1>

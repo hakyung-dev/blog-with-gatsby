@@ -4,10 +4,15 @@ import { graphql } from 'gatsby';
 import Layout from '../layouts/index';
 
 const Page = (props) => {
-  const { html, frontmatter } = props.data.page;
+  const { html, frontmatter, fields } = props.data.page;
+
+  const seo = {
+    description: frontmatter.description,
+    path: `/${fields.slug}`,
+  };
 
   return (
-    <Layout title={`${frontmatter.title}`}>
+    <Layout title={`${frontmatter.title}`} pageSEO={seo}>
       <section>
         <div className="container md-page">
           <div
@@ -29,6 +34,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        description
       }
       html
     }

@@ -8,7 +8,7 @@ import Button from '../components/ActiveLinkButton';
 import Comments from '../components/Comments';
 
 const Post = (props) => {
-  const { frontmatter, html } = props.data.blogPost;
+  const { fields, frontmatter, html, excerpt } = props.data.blogPost;
   const kebabCategory = _.kebabCase(frontmatter.category);
 
   const categoryButton = frontmatter.category ? (
@@ -36,8 +36,15 @@ const Post = (props) => {
     );
   });
 
+  const seo = {
+    description: excerpt,
+    path: `blog/${fields.slug}`,
+    image: frontmatter.thumbnail.childImageSharp.fixed.src,
+    isStructuredData: `blog`,
+  };
+
   return (
-    <Layout title={frontmatter.title}>
+    <Layout title={frontmatter.title} pageSEO={seo}>
       <section>
         <div className="container post-top">
           <div className="wrap">

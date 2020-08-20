@@ -7,8 +7,13 @@ import Buttons from '../components/StrongLinkButton';
 const TagsPage = (props) => {
   const { group } = props.data.allMarkdownRemark;
 
+  const seo = {
+    description: `블로그 전체 태그 리스트`,
+    path: `/tags`,
+  };
+
   return (
-    <Layout title={`Tags`}>
+    <Layout title={`Tags`} pageSEO={seo}>
       <section>
         <div className="container filter-top">
           <h1 className="title">All Categories</h1>

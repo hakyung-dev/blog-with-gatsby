@@ -7,16 +7,16 @@ import PostList from '../components/BasicList';
 import TagButton from '../components/ActiveLinkButton';
 
 const tags = (props) => {
-  const { data, pageContext } = props;
+  const { data, pageContext, path } = props;
 
-  const tagList = data.allTags.group.map((category, i) => {
-    const kebabCategory = _.kebabCase(category.fieldValue);
+  const tagList = data.allTags.group.map((tag, i) => {
+    const kebabTag = _.kebabCase(tag.fieldValue);
 
     return (
       <li key={i}>
         <TagButton
-          name={category.fieldValue}
-          path={`/tags/${kebabCategory}`}
+          name={tag.fieldValue}
+          path={`/tags/${kebabTag}`}
           type={`button`}
           classname={`bottom-tag`}
         />
@@ -24,8 +24,13 @@ const tags = (props) => {
     );
   });
 
+  const seo = {
+    description: `${pageContext.tag} 태그된 포스트`,
+    path,
+  };
+
   return (
-    <Layout title={`Tag - ${pageContext.tag}`}>
+    <Layout title={`Tag - ${pageContext.tag}`} pageSEO={seo}>
       <section>
         <div className="container filter-top">
           <h1 className="title">

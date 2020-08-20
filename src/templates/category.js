@@ -7,7 +7,7 @@ import PostList from '../components/BasicList';
 import CategoryButton from '../components/ActiveLinkButton';
 
 const category = (props) => {
-  const { data, pageContext } = props;
+  const { data, pageContext, path } = props;
 
   const categoryList = data.allCategories.group.map((category, i) => {
     const kebabCategory = _.kebabCase(category.fieldValue);
@@ -23,8 +23,13 @@ const category = (props) => {
     );
   });
 
+  const seo = {
+    description: `${pageContext.category} 카테고리인 포스트`,
+    path,
+  };
+
   return (
-    <Layout title={`Category - ${pageContext.category}`}>
+    <Layout title={`Category - ${pageContext.category}`} pageSEO={seo}>
       <section>
         <div className="container filter-top">
           <h1 className="title">
