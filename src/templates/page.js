@@ -13,7 +13,7 @@ const Page = (props) => {
 
   return (
     <Layout title={`${frontmatter.title}`} pageSEO={seo}>
-      <section>
+      <section className="page-top">
         <div className="container md-page">
           <div
             className="markdown"

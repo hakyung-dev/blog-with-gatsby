@@ -14,7 +14,7 @@ const CategoriesPage = (props) => {
 
   return (
     <Layout title={`Categories`} pageSEO={seo}>
-      <section>
+      <section className="page-top">
         <div className="container filter-top">
           <h1 className="title">All Categories</h1>
         </div>

@@ -30,7 +30,7 @@ const category = (props) => {
 
   return (
     <Layout title={`Category - ${pageContext.category}`} pageSEO={seo}>
-      <section>
+      <section className="page-top">
         <div className="container filter-top">
           <h1 className="title">
             Posts in category:{' '}

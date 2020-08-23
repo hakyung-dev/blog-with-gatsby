@@ -31,7 +31,7 @@ const tags = (props) => {
 
   return (
     <Layout title={`Tag - ${pageContext.tag}`} pageSEO={seo}>
-      <section>
+      <section className="page-top">
         <div className="container filter-top">
           <h1 className="title">
             Posts tagged as <span className="by">{`${pageContext.tag}`}</span>

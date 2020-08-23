@@ -14,7 +14,7 @@ const TagsPage = (props) => {
 
   return (
     <Layout title={`Tags`} pageSEO={seo}>
-      <section>
+      <section className="page-top">
         <div className="container filter-top">
           <h1 className="title">All Categories</h1>
         </div>

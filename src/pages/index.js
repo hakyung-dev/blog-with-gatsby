@@ -11,7 +11,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout title={`Home`}>
-      <section>
+      <section className="page-top">
         <div className="container-wide index-header">
           <div className="title">
             <h1 className="type">{`Hi! `}</h1>

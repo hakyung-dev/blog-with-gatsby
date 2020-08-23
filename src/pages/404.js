@@ -7,7 +7,7 @@ import Not from '../styles/images/notFound.png';
 const NotFound = () => {
   return (
     <Layout title={`404`}>
-      <section>
+      <section className="page-top">
         <div className="container not">
           <h1 className="title">Page Not Found</h1>
           <Link className="back-text" to="/">
