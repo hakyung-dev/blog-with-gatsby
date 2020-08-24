@@ -1,14 +1,14 @@
 
 <p align="center">
-  <a href="https://dev.hakyung.site">
+  <a href="https://www.devhak.com">
     <img src="https://paan.s3.ap-northeast-2.amazonaws.com/siteLogo.png" width="80" height="80" alt="logo">
   </a>
 </p>
-<h1 align="center">dev.hakyung.site</h1>
+<h1 align="center">www.devhak.com</h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/904c5db2-9246-4ff5-aa1a-f18cfbab6f9d/deploy-status)](https://app.netlify.com/sites/devhak/deploys)
 
-꾸준히 쓰려고 만든 개인 개발 [블로그](https://dev.hakyung.site).  
+꾸준히 쓰려고 만든 개인 개발 [블로그](https://www.devhak.com).  
 (부제: blog-with-gatsby)
 
 
