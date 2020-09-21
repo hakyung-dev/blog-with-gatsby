@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../layouts/index';
+import Top from '../components/PageTop';
 import Buttons from '../components/StrongLinkButton';
 
 const CategoriesPage = (props) => {
@@ -14,14 +15,10 @@ const CategoriesPage = (props) => {
 
   return (
     <Layout title={`Categories`} pageSEO={seo}>
-      <section className="page-top">
-        <div className="container filter-top">
-          <h1 className="title">All Categories</h1>
-        </div>
-        <div className="container all">
-          <Buttons nav={`categories`} group={group} />
-        </div>
-      </section>
+      <Top title={`All Categories`} bg={`filter`} />
+      <div className="container all">
+        <Buttons nav={`categories`} group={group} />
+      </div>
     </Layout>
   );
 };

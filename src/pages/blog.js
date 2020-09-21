@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import { FaSearch } from 'react-icons/fa';
 
 import Layout from '../layouts/index';
+import Top from '../components/PageTop';
 import CategoryButton from '../components/ActiveLinkButton';
+import Search from '../components/Search';
 import PostList from '../components/BasicList';
+import pageText from '../../contents/data/pageText';
 
 const BlogPage = (props) => {
   const { posts, categories } = props.data;
@@ -40,38 +42,28 @@ const BlogPage = (props) => {
   };
 
   const seo = {
-    description: `Javascript, React 등 Frontend 개발과 관련된 글을 씁니다.`,
+    description: pageText.blog,
     path: `/blog`,
   };
 
   return (
     <Layout title={`Blog`} pageSEO={seo}>
-      <section className="section-blog-header">
-        <div className="container blog-header">
-          <h1 className="title">Blog</h1>
-          <div className="wrap">
-            <ul className="category-list">{categoryList}</ul>
+      <Top title={`Blog`} bg={`blog`} />
+      <section className="container page-middle">
+        <ul className="category-list">{categoryList}</ul>
+        <div className="wrap">
+          <div className="count">
+            {countPosts} / {countTotal}
           </div>
-          <div className="wrap">
-            <div className="count">
-              {countPosts} / {countTotal}
-            </div>
-            <div className="search">
-              <div className="search-icon">
-                <FaSearch />
-              </div>
-              <input
-                className="search-box"
-                type="text"
-                placeholder="검색어를 입력하세요."
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+          <Search
+            handleChange={handleChange}
+            type={`wide`}
+            placeholder={`검색어를 입력하세요.`}
+          />
         </div>
       </section>
       <section>
-        <div className="container-wide blog-list">
+        <div className="container-wide page-body">
           <PostList postEdges={filtered} />
         </div>
       </section>
@@ -90,6 +82,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            nav
             tags
             category
             thumbnail {

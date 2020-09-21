@@ -1,25 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import pageText from '../../contents/data/pageText';
 import Layout from '../layouts/index';
-import Sit from '../styles/images/sit.png';
+import Top from '../components/PageTop';
 
 const AboutPage = (props) => {
   const { about } = props.data;
 
   return (
     <Layout title={`About`}>
-      <section className="section-about-header">
-        <div className="container about-header">
-          <h1 className="title">About me</h1>
-          <div className="description">{pageText.about}</div>
-        </div>
-        <div className="float-container">
-          <img src={Sit} className="image-sit" alt="page-about" />
-        </div>
-      </section>
-      <section className="md-page">
+      <Top title={`About Me`} bg={`about`} />
+      <section className="page-body">
         <div
           className="container markdown"
           dangerouslySetInnerHTML={{ __html: about.html }}

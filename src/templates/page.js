@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../layouts/index';
+import Top from '../components/PageTop';
 
 const Page = (props) => {
   const { html, frontmatter, fields } = props.data.page;
@@ -13,13 +14,9 @@ const Page = (props) => {
 
   return (
     <Layout title={`${frontmatter.title}`} pageSEO={seo}>
-      <section className="page-top">
-        <div className="container md-page">
-          <div
-            className="markdown"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
+      <Top title={frontmatter.title} bg={`md`} />
+      <section className="container page-body">
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
       </section>
     </Layout>
   );
