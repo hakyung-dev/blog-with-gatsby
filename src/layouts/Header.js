@@ -4,7 +4,7 @@ import ThemeContext from '../store/ThemeContext';
 
 import Nav from '../components/ActiveLinkButton';
 import logo from '../styles/images/onlyHead.png';
-import Switch from '../components/Switch';
+import Switch from '../components/Button';
 
 const Header = (props) => {
   const { navArray, title } = props;
@@ -54,9 +54,9 @@ const Header = (props) => {
             <ul className="nav-list">{navList}</ul>
           </nav>
           <Switch
-            isChecked={state.theme}
             handleToggle={() => dispatch({ type: 'TOGGLE_MODE' })}
-            type={'theme'}
+            type={'switch'}
+            isChecked={state.theme === 'light'}
           />
         </div>
       </div>
