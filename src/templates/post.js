@@ -45,9 +45,9 @@ const Post = (props) => {
 
   return (
     <Layout title={frontmatter.title} pageSEO={seo}>
-      <section className="page-top">
-        <div className="container post-top">
-          <div className="wrap">
+      <section>
+        <div className="container template-top">
+          <div className="post-info">
             {categoryButton}
             <h1 className="title">{frontmatter.title}</h1>
             <div className="date">{frontmatter.date}</div>

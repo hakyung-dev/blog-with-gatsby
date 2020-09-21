@@ -11,7 +11,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout title={`Home`}>
-      <section className="page-top">
+      <section>
         <div className="container-wide index-header">
           <div className="title">
             <h1 className="type">{`Hi! `}</h1>
@@ -29,7 +29,7 @@ const IndexPage = (props) => {
           </Link>
         </div>
       </section>
-      <section className="section-grey">
+      <section className="bg-grey">
         <div className="container index-sub">
           <Link className="top" to="/blog">
             <h2 className="title">Latest Blog Posts</h2>

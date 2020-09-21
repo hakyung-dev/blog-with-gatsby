@@ -31,17 +31,19 @@ const tags = (props) => {
 
   return (
     <Layout title={`Tag - ${pageContext.tag}`} pageSEO={seo}>
-      <section className="page-top">
-        <div className="container filter-top">
+      <section>
+        <div className="container template-top">
           <h1 className="title">
             Posts tagged as <span className="by">{`${pageContext.tag}`}</span>
           </h1>
         </div>
-        <div className="container-wide filter-list">
+      </section>
+      <section>
+        <div className="container-wide page-body">
           <PostList postEdges={data.postsByTag.edges} />
         </div>
       </section>
-      <section className="section-grey">
+      <section>
         <div className="container all">
           <div className="title">All Tags</div>
           <ul className="all-button">{tagList}</ul>
@@ -56,7 +58,7 @@ export const pageQuery = graphql`
     postsByTag: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fields: { nav: { eq: "blog" } }
+        fields: { nav: { in: ["blog", "algorithm"] } }
         frontmatter: { tags: { in: $tag } }
       }
     ) {
@@ -66,6 +68,7 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             tags
+            nav
             category
             thumbnail {
               childImageSharp {

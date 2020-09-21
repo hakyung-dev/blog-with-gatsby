@@ -39,7 +39,7 @@ const SimpleList = (props) => {
     );
   });
 
-  return <ol>{simplePosts}</ol>;
+  return <ol className="post-list">{simplePosts}</ol>;
 };
 
 export default SimpleList;

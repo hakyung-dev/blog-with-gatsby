@@ -30,18 +30,20 @@ const category = (props) => {
 
   return (
     <Layout title={`Category - ${pageContext.category}`} pageSEO={seo}>
-      <section className="page-top">
-        <div className="container filter-top">
+      <section>
+        <div className="container template-top">
           <h1 className="title">
             Posts in category:{' '}
             <span className="by">{`${pageContext.category}`}</span>
           </h1>
         </div>
-        <div className="container-wide filter-list">
+      </section>
+      <section>
+        <div className="container-wide page-body">
           <PostList postEdges={data.postsByCategory.edges} />
         </div>
       </section>
-      <section className="section-grey">
+      <section>
         <div className="container all">
           <div className="title">All Categories</div>
           <ul className="all-button">{categoryList}</ul>
@@ -65,6 +67,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            nav
             tags
             category
             thumbnail {

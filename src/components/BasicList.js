@@ -35,22 +35,22 @@ const BasicList = (props) => {
     });
 
     return (
-      <li className="basic" key={i}>
-        <Link to={`/blog/${fields.slug}`} className="link-post">
-          <div className="info">
+      <li className="post-item basic" key={i}>
+        <Link to={`/${frontmatter.nav}/${fields.slug}`}>
+          <div className="item-info">
             <div className="img">{img}</div>
             <div className="wrap">
               <h2 className="title">{frontmatter.title}</h2>
-              <div className="date">{frontmatter.date}</div>
+              <div className="small">{frontmatter.date}</div>
             </div>
           </div>
         </Link>
-        <ul className="tag-list">{tagList}</ul>
+        <ul className="item-list tag-list">{tagList}</ul>
       </li>
     );
   });
 
-  return <ol>{posts}</ol>;
+  return <ol className="post-list">{posts}</ol>;
 };
 
 export default BasicList;
