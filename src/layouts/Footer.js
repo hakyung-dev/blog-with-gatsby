@@ -42,6 +42,9 @@ const Footer = (props) => {
               <Link to={`/categories`}>All Categories</Link>
               <Link to={`/tags`}>All Tags</Link>
             </div>
+            <Link to={`/algorithm`} className="index">
+              Algorithm
+            </Link>
           </div>
           <div className="list">
             <div className="index">Other</div>

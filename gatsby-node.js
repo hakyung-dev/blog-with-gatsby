@@ -26,6 +26,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve('./src/templates/post.js');
+  const problemTemplate = path.resolve('./src/templates/problem.js');
   const pageTemplate = path.resolve('./src/templates/page.js');
   const categoryTemplate = path.resolve('./src/templates/category.js');
   const tagTemplate = path.resolve('./src/templates/tag.js');
@@ -38,6 +39,25 @@ module.exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               tags
               category
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const markdownAlgorithm = await graphql(`
+    query {
+      allMarkdownRemark(filter: { fields: { nav: { eq: "algorithm" } } }) {
+        edges {
+          node {
+            frontmatter {
+              from
+              level
+              tags
             }
             fields {
               slug
@@ -65,6 +85,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const categorySet = new Set();
   const tagSet = new Set();
   const postEdges = markdownBlog.data.allMarkdownRemark.edges;
+  const algorithmEdges = markdownAlgorithm.data.allMarkdownRemark.edges;
   const pageEdges = markdownPage.data.allMarkdownRemark.edges;
 
   postEdges.forEach((edge) => {
@@ -91,6 +112,22 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: pageTemplate,
       path: `/${edge.node.fields.slug}`,
+      context: {
+        slug: edge.node.fields.slug,
+      },
+    });
+  });
+
+  algorithmEdges.forEach((edge) => {
+    if (edge.node.frontmatter.tags) {
+      edge.node.frontmatter.tags.forEach((tag) => {
+        tagSet.add(tag);
+      });
+    }
+
+    createPage({
+      component: problemTemplate,
+      path: `/algorithm/${edge.node.fields.slug}`,
       context: {
         slug: edge.node.fields.slug,
       },
