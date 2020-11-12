@@ -55,7 +55,7 @@ const HideList = (props) => {
             </div>
           </div>
         </Link>
-        <ul className="item-list hide-items">{show ? tagList : <></>}</ul>
+        <ul className="item-list hide-items">{show && tagList}</ul>
       </li>
     );
   });
