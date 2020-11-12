@@ -34,6 +34,8 @@ const BasicList = (props) => {
       );
     });
 
+    const displayDate = frontmatter.nav !== 'algorithm' && frontmatter.date;
+
     return (
       <li className="post-item basic" key={i}>
         <Link to={`/${frontmatter.nav}/${fields.slug}`}>
@@ -41,7 +43,7 @@ const BasicList = (props) => {
             <div className="img">{img}</div>
             <div className="wrap">
               <h2 className="title">{frontmatter.title}</h2>
-              <div className="small">{frontmatter.date}</div>
+              <div className="small">{displayDate}</div>
             </div>
           </div>
         </Link>
