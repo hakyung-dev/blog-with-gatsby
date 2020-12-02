@@ -4,10 +4,11 @@ import { Link, graphql } from 'gatsby';
 import pageText from '../../contents/data/pageText';
 import Layout from '../layouts';
 import SimpleList from '../components/SimpleList';
+import SquareList from '../components/SquareList';
 import Typing from '../components/Typing';
 
 const IndexPage = (props) => {
-  const { latestPost, indexCode } = props.data;
+  const { latestPost, indexCode, pinnedPost } = props.data;
 
   return (
     <Layout title={`Home`}>
@@ -32,9 +33,12 @@ const IndexPage = (props) => {
       <section className="bg-grey">
         <div className="container index-sub">
           <Link className="top" to="/blog">
-            <h2 className="title">Latest Blog Posts</h2>
+            <h2 className="title">Blog</h2>
           </Link>
           <div className="body">
+            <h3 className="subtitle">📌 Pinned Posts</h3>
+            <SquareList postEdges={pinnedPost.edges} />
+            <h3 className="subtitle">✍️ Latest Posts</h3>
             <SimpleList postEdges={latestPost.edges} />
           </div>
         </div>
@@ -49,6 +53,33 @@ export const pageQuery = graphql`
       frontmatter: { nav: { eq: "data" }, title: { eq: "indexCode" } }
     ) {
       html
+    }
+
+    pinnedPost: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { pin: { eq: true } } }
+      limit: 5
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            tags
+            thumbnail {
+              childImageSharp {
+                fixed(width: 30, height: 30) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+          fields {
+            slug
+            nav
+          }
+        }
+      }
     }
 
     latestPost: allMarkdownRemark(
