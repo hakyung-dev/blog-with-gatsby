@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://www.devhak.com">
-    <img src="https://paan.s3.ap-northeast-2.amazonaws.com/siteLogo.png" width="80" height="80" alt="logo">
+    <img src="../blog-with-gatsby/public/static/logoIcon-37f7686732afb400dca703537498a701.svg" width="80" height="80" alt="logo">
   </a>
 </p>
 <h1 align="center">www.devhak.com</h1>
