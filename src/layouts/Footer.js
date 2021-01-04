@@ -9,12 +9,13 @@ import config from '../../contents/config';
 
 const Footer = (props) => {
   const { author } = props;
+  const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
       <section className="set front">
         <div className="container center">
-          <div>Copyright 2020. {author} all rights reserved.</div>
+          <div>{`Copyright 2020-${year}. ${author} all rights reserved.`}</div>
         </div>
       </section>
       <section className="set pusher" />
